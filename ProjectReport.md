@@ -16,6 +16,7 @@ I approached tackling this issue by utilizing a Gaussian Mixture Model to best d
 I began by deciding on the HSV color space, as opposed to RGB or grayscale. The HSV color space measures colors based on hue, saturation, and value. This is ideal for our purpose, as the red barrel is going to consistently be the same red, with only various lighting conditions affecting the color.
  
 For the hue portion of the color space, Reds fall between 0 and 60 degrees. This is helpful as it can easily deduce that colors outside of this hue will not be considered. The saturation and values of red barrels will be what varies based on the differing lighting conditions. In limiting the variations to two features, the model will be better able to fit gaussians.
+
 ![HSV Color Space](HSVColorSpace.png)
 
 ### Number Of GMMs
@@ -25,6 +26,7 @@ The number of GMMs was determined by the two varying features that are going to 
 After running my GMM with 30 EM iterations, I was able to plot a log likelihood graph.
 
 The points on the graph display the increase in log likelihood sum at each EM iteration. According to the plot, a reasonable EM iteration to stop would’ve been 9, seeing as it begins to converge from that point onwards. However, for the assignment, I settled for 7 as I did not plot 30 iterations, and therefore was confused by the behavior leading up to the 9th iteration.
+
 ![Log Likelihood Plot](loglikelihoodssum.png)
 
 ### Thresholds
